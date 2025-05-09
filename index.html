@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Goal Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .bar-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 30px;
+      margin-top: 20px;
+    }
+    .bar-fill {
+      height: 100%;
+      width: 0;
+      background-color: #4caf50;
+      transition: width 0.3s;
+    }
+    .count {
+      font-size: 2rem;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Goal Counter</h1>
+  <!-- <button onclick="increment()">Add</button -->
+  <div class="count" id="count">0 / 100</div>
+  <div class="bar-container">
+    <div class="bar-fill" id="bar"></div>
+  </div>
+
+  <script>
+    let count = 35;
+    const goal = 700;
+
+    function increment() {
+      if (count < goal) {
+        count++;
+        document.getElementById('count').textContent = `${count} / ${goal}`;
+        const percentage = (count / goal) * 100;
+        document.getElementById('bar').style.width = percentage + '%';
+      }
+    }
+      // Optional: initialize display
+        document.addEventListener('DOMContentLoaded', () => {
+          document.getElementById('count').textContent = `${count} / ${goal}`;
+          document.getElementById('bar').style.width = (count / goal) * 100 + '%';
+    });
+  </script>
+</body>
+</html>
+
